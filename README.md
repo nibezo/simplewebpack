@@ -1,6 +1,9 @@
 # simplewebpack
 
 Example of Webpack project with vanilia HTML and SASS.
+Clone it and run ```npm install```. 
+
+Guide to create project like this one:
 
 1. Create nodejs project:
 
