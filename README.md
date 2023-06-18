@@ -26,10 +26,7 @@ Guide to create project like this one:
    	},
    ```
 
-4. Create `webpack.config.js` file:
-
-   <img src="https://github.com/nibezo/simplewebpack/assets/52705623/643e2b65-8144-421b-8133-0aa2ec5b5e65" width="250" height="40">
-
+4. Create `webpack.config.js` file
 
 5. Add HTML plugin and setup it:
 
@@ -73,8 +70,6 @@ Guide to create project like this one:
 
 7. Create style.scss, simple HTML template and edit `webpack.congif.js`:
    
-   <img src="https://github.com/nibezo/simplewebpack/assets/52705623/bd565f9e-133f-4eaa-ba5c-6596a69ba699" width="250" height="30">
-
    - index.html
      ```html
      <!DOCTYPE html>
@@ -141,12 +136,12 @@ Guide to create project like this one:
      };
      ```
 
-8. Add dev server for live-coding: 
+9. Add dev server for live-coding: 
     
     ```html
     npm i -D webpack-dev-server
     ```
-9. And add devServer with port number to ```webpack.congif.js```:
+10. And add devServer with port number to ```webpack.congif.js```:
    ```js
    const path = require("path");
    const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -184,10 +179,7 @@ Guide to create project like this one:
    	},
    };
    ```
-10.  And change *start* script in `package.json`:
+11.  And change *start* script in `package.json`:
       ```jsx
       "start": "npx webpack-dev-server --mode development"
       ```
-### So, structure of project is:
-
-   <img src="https://github.com/nibezo/simplewebpack/assets/52705623/846cd477-2b79-4651-8382-bd86c6c8426f" width="400" height="350">
