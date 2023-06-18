@@ -25,7 +25,8 @@ Example of Webpack project with vanilia HTML and SASS.
 
 4. Create `webpack.config.js` file:
 
-   ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f02fb596-b746-48d6-aef8-140042130a8e/Untitled.png)
+   <img src="https://github.com/nibezo/simplewebpack/assets/52705623/643e2b65-8144-421b-8133-0aa2ec5b5e65" width="250" height="40">
+
 
 5. Add HTML plugin and setup it:
 
@@ -68,8 +69,8 @@ Example of Webpack project with vanilia HTML and SASS.
    ```
 
 7. Create style.scss, simple HTML template and edit `webpack.congif.js`:
-
-   ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a3fd3ed4-2b75-4085-af69-a837e3be4392/Untitled.png)
+   
+   <img src="https://github.com/nibezo/simplewebpack/assets/52705623/bd565f9e-133f-4eaa-ba5c-6596a69ba699" width="250" height="30">
 
    - index.html
      ```html
@@ -137,31 +138,53 @@ Example of Webpack project with vanilia HTML and SASS.
      };
      ```
 
-8. Add dev server for live-coding:
-
-   ```html
-   npm i -D webpack-dev-server
-   ```
-
-9. And add devServer with port number to `webpack.congif.js`:
-   - Code of `webpack.congif.js`
-     ```html
-     const path = require("path"); const HtmlWebpackPlugin =
-     require("html-webpack-plugin"); module.exports = { entry: "./index.js",
-     output: { filename: "bundle.js", path: path.resolve(__dirname, "dist"),
-     clean: true, }, plugins: [ new HtmlWebpackPlugin({ template: "index.html",
-     }), ], module: { rules: [ { test: /\.s[ac]ss$/i, use: [ // Creates `style`
-     nodes from JS strings "style-loader", // Translates CSS into CommonJS
-     "css-loader", // Compiles Sass to CSS "sass-loader", ], }, ], }, devServer:
-     { port: 9000, open: true, }, };
-     ```
-10. And change _start_ script in `package.json`:
-
-
+8. Add dev server for live-coding: 
+    
     ```html
-    "start": "npx webpack-dev-server --mode development"
+    npm i -D webpack-dev-server
     ```
-
+9. And add devServer with port number to ```webpack.congif.js```:
+   ```js
+   const path = require("path");
+   const HtmlWebpackPlugin = require("html-webpack-plugin");
+   
+   module.exports = {
+   	entry: "./index.js",
+   	output: {
+   		filename: "bundle.js",
+   		path: path.resolve(__dirname, "dist"),
+   		clean: true,
+   	},
+   	plugins: [
+   		new HtmlWebpackPlugin({
+   			template: "index.html",
+   		}),
+   	],
+   	module: {
+   		rules: [
+   			{
+   				test: /\.s[ac]ss$/i,
+   				use: [
+   					// Creates `style` nodes from JS strings
+   					"style-loader",
+   					// Translates CSS into CommonJS
+   					"css-loader",
+   					// Compiles Sass to CSS
+   					"sass-loader",
+   				],
+   			},
+   		],
+   	},
+   	devServer: {
+   		port: 9000,
+   		open: true,
+   	},
+   };
+   ```
+10.  And change *start* script in `package.json`:
+      ```jsx
+      "start": "npx webpack-dev-server --mode development"
+      ```
 ### So, structure of project is:
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a0a9d2b8-3d06-4c7d-8823-422e97b0cd30/Untitled.png)
+   <img src="https://github.com/nibezo/simplewebpack/assets/52705623/846cd477-2b79-4651-8382-bd86c6c8426f" width="400" height="350">
