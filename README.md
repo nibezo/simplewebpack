@@ -1,7 +1,7 @@
 # simplewebpack
 
 Example of Webpack project with vanilia HTML and SASS.
-Clone it and run ```npm install```. 
+Clone it and run `npm install`.
 
 Guide to create project like this one:
 
@@ -35,6 +35,7 @@ Guide to create project like this one:
    ```
 
    - `webpack.congif.js` after adding HTML plugin
+
      ```jsx
      const path = require("path");
      const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -69,7 +70,7 @@ Guide to create project like this one:
    ```
 
 7. Create style.scss, simple HTML template and edit `webpack.congif.js`:
-   
+
    - index.html
      ```html
      <!DOCTYPE html>
@@ -92,6 +93,7 @@ Guide to create project like this one:
      import "./style.scss";
      ```
    - style.scss
+
      ```sass
      $body-color: rgb(138, 255, 160);
 
@@ -101,7 +103,9 @@ Guide to create project like this one:
      	color: $body-color;
      }
      ```
+
    - webpack.congif.js
+
      ```jsx
      const path = require("path");
      const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -136,50 +140,76 @@ Guide to create project like this one:
      };
      ```
 
-9. Add dev server for live-coding: 
-    
-    ```html
-    npm i -D webpack-dev-server
-    ```
-10. And add devServer with port number to ```webpack.congif.js```:
-   ```js
-   const path = require("path");
-   const HtmlWebpackPlugin = require("html-webpack-plugin");
-   
-   module.exports = {
-   	entry: "./index.js",
-   	output: {
-   		filename: "bundle.js",
-   		path: path.resolve(__dirname, "dist"),
-   		clean: true,
-   	},
-   	plugins: [
-   		new HtmlWebpackPlugin({
-   			template: "index.html",
-   		}),
-   	],
-   	module: {
-   		rules: [
-   			{
-   				test: /\.s[ac]ss$/i,
-   				use: [
-   					// Creates `style` nodes from JS strings
-   					"style-loader",
-   					// Translates CSS into CommonJS
-   					"css-loader",
-   					// Compiles Sass to CSS
-   					"sass-loader",
-   				],
-   			},
-   		],
-   	},
-   	devServer: {
-   		port: 9000,
-   		open: true,
-   	},
-   };
+8. Add dev server for live-coding:
+
+   ```html
+   npm i -D webpack-dev-server
    ```
-11.  And change *start* script in `package.json`:
-      ```jsx
-      "start": "npx webpack-dev-server --mode development"
-      ```
+
+9. And add devServer with port number to `webpack.congif.js`:
+
+```js
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+	entry: "./index.js",
+	output: {
+		filename: "bundle.js",
+		path: path.resolve(__dirname, "dist"),
+		clean: true,
+	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: "index.html",
+		}),
+	],
+	module: {
+		rules: [
+			{
+				test: /\.s[ac]ss$/i,
+				use: [
+					// Creates `style` nodes from JS strings
+					"style-loader",
+					// Translates CSS into CommonJS
+					"css-loader",
+					// Compiles Sass to CSS
+					"sass-loader",
+				],
+			},
+		],
+	},
+	devServer: {
+		port: 9000,
+		open: true,
+	},
+};
+```
+
+11. And change _start_ script in `package.json`:
+
+    ```jsx
+    "start": "npx webpack-dev-server --mode development"
+    ```
+
+12. Add possibility for files coping to a folder:
+
+    Add a CopyPlugin
+
+    ```html
+    npm install copy-webpack-plugin --save-dev
+    ```
+
+    And add to webpack.config.js this:
+
+    ```jsx
+    const CopyPlugin = require("copy-webpack-plugin");
+    ```
+
+    This add to plugins configuration:
+
+    ```jsx
+    new CopyPlugin({
+    	patterns: [{ from: ".src/", to: ".src/" }],
+    }),
+    ```
